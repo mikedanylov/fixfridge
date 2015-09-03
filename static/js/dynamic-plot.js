@@ -21,13 +21,6 @@ window.onload = function () {
         }]
      });
 
-    //  var day = now_date.getDate();
-    //  var month = now_date.getMonth() + 1;
-    //  var year = now_date.getFullYear();
-    //  var hour = now_date.getHours();
-    //  var min = now_date.getMinutes();
-    //  var s = now_date.getSeconds();
-
     chart.render();
 
     var yVal = 15, updateCount = 0;

@@ -1,4 +1,4 @@
-{#templates/base.html#}
+{#templates/sensor_logging/base.html#}
 {% block doctype %}<!DOCTYPE html>{% endblock %}
 {% load i18n %}
 <html lang="{{LANGUAGE_CODE}}">
@@ -33,13 +33,28 @@
 </head>
 
 <body class="{% block bodyclass %}{% endblock %}">
+    {% load crispy_forms_tags %}
     {% block page %}
+
         {% block header_navigation %}
-            {% include "header_navigation.html" %}
+            {% include "sensor_logging/header_navigation.html" %}
         {% endblock header_navigation %}
+
+        {% block content %}
+            <div class="container-fluid">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{ form }}
+                    <input type="submit" value="select" />
+                </form>
+            </div>
+
+        {% endblock %}
+
         {% block plot %}
-            {% include "plot.html" %}
+            {% include "sensor_logging/plot.html" %}
         {% endblock plot %}
+
     {% endblock page %}
     {% block extrabody %}{% endblock %}
 </body>

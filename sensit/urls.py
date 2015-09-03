@@ -16,12 +16,11 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
-from sensor_logging import views
-
+from sensor_logging import views as s_views
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    # url(r'^sensit/', views.main_view),
-    url(r'^$', views.main_view),
-    url(r'^home/', views.main_view),
+    url(r'^$', s_views.main_view),
+    url(r'^home/', s_views.main_view),
+    # url(r'^test/', s_views.choose_id),
 ]
