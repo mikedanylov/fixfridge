@@ -1,0 +1,36 @@
+{% extends 'sensor_logging/base.html' %}
+
+{% block extrabody %}
+    {% load crispy_forms_tags %}
+    <div class="container-fluid">
+        <div class="jumbotron masthead">
+            <div class="row">
+                <div class="col-xs-offset-3 col-xs-9
+                            col-sm-offset-2 col-sm-10
+                            col-md-offset-3 col-md-9
+                            col-lg-offset-4 col-lg-8">
+                    <h1>Select filter type</h1>
+                </div>
+            </div>
+            <div class="row">
+                {% crispy main_form %}
+            </div>
+        </div>
+    </div>
+
+
+
+{#    {% block filter %}#}
+{#        {% include "sensor_logging/id_filter.html" %}#}
+{#    {% endblock filter %}#}
+{##}
+{#    {% block plot %}#}
+{#        <script>#}
+{#        ajax_request('measurements_div', '/static/measurements.txt');#}
+{#        ajax_request('datetime_div', '/static/datetime.txt');#}
+{#        </script>#}
+{#        <div id="measurements_div" hidden></div>#}
+{#        <div id="datetime_div" hidden></div>#}
+{#        {% include "sensor_logging/plot.html" %}#}
+{#    {% endblock plot %}#}
+{% endblock %}

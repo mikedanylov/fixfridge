@@ -1,19 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="1314775664">
-    <data-source source="LOCAL" name="Django default" uuid="1defd60a-b4fa-43b5-916d-93a761c9394c">
-      <driver-ref>postgresql</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql:sensodb</jdbc-url>
-      <libraries>
-        <library>
-          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/postgresql-driver-license.txt</url>
-        </library>
-        <library>
-          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/postgresql-9.4-1201.jdbc4.jar</url>
-        </library>
-      </libraries>
-    </data-source>
-  </component>
-</project>
+<project version="4" />

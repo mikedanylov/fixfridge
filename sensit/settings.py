@@ -86,7 +86,7 @@ DATABASES = {
         'USER': 'mikedanylov',
         'PASSWORD': 'ps7vj590',
         'HOST': '',
-        'PORT': '',
+        'PORT': '5432',
     }
 }
 
@@ -110,8 +110,8 @@ USE_TZ = True
 
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
-
+#
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-    '/home/mikedanylov/workspace/web/sensit/static/',
+    os.path.join(BASE_DIR, 'sensor_logging/static'),
+    # '/home/mikedanylov/workspace/web/sensit/sensor_logging/',
 )

@@ -2,6 +2,10 @@
   <dictionary name="mikedanylov">
     <words>
       <w>baudrate</w>
+      <w>onload</w>
+      <w>onreadystatechange</w>
+      <w>realtime</w>
+      <w>xmlhttp</w>
     </words>
   </dictionary>
 </component>

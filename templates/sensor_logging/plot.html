@@ -1,12 +1,7 @@
+
 {% block content %}
     <div class="container-fluid">
-        <div class="panel panel-default">
-            <div class="panel-heading">Data plot</div>
-            <div class="panel-body">
-                {% load staticfiles %}
-                <script src = "{% static "js/dynamic-plot.js" %}" >  </script>
-                <div id = "chartContainer" style = "height: 300px; width: 100%;"></div>
-            </div>
-        </div>
+        <div id = "chartContainer" style = "height: 400px; width: 100%;"></div>
+        <button class="btn btn-success" onclick="plot_selected()">Plot current sensor measurements</button>
     </div>
 {% endblock %}
