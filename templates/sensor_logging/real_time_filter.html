@@ -1,5 +1,92 @@
 {% extends 'sensor_logging/base.html' %}
 
+{% block extrahead %}
+
+    {% load crispy_forms_tags %}
+    {% load staticfiles %}
+
+    <link href="{% static "css/checkbox.css" %}" rel="stylesheet">
+    <link href="{% static "ion.rangeSlider-2.0.13/ion.rangeSlider-2.0.13/css/ion.rangeSlider.css" %}" rel="stylesheet">
+    <link href="{% static "ion.rangeSlider-2.0.13/ion.rangeSlider-2.0.13/css/ion.rangeSlider.skinFlat.css" %}" rel="stylesheet">
+    <link href="{% static "ion.rangeSlider-2.0.13/ion.rangeSlider-2.0.13/css/normalize.css" %}" rel="stylesheet">
+
+    <script src="{% static "js/plot.js" %}"></script>
+    <script src="{% static "js/canvasjs-1.7.0/canvasjs.min.js" %}"></script>
+    <script src="{% static "js/realtime_page.js" %}"></script>
+    <script src="{% static "ion.rangeSlider-2.0.13/ion.rangeSlider-2.0.13/js/ion-rangeSlider/ion.rangeSlider.js" %}"></script>
+
+{% endblock extrahead %}
+
 {% block extrabody %}
-    <h2>Real-time filter</h2>
+    <div class="container-fluid">
+        <h2>Real-time filter</h2>
+        <div class="well">
+            <div class="row">
+                <div class="col-xs-6">
+                    <h3>Select sensors to display</h3>
+                </div>
+                <div class="col-xs-6">
+                    <h3>Select time frame</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 col-sm-6">
+{#                    <div class="checkbox-inline">#}
+{#                        <input type="checkbox" id="1" value="1">#}
+{#                        <span class="checkboxtext">1</span>#}
+{#                    </div>#}
+{#                    <div class="checkbox-inline">#}
+{#                        <input type="checkbox" id="2" value="2">#}
+{#                        <span class="checkboxtext">2</span>#}
+{#                    </div>#}
+                    <div class="checkbox-inline">
+                        <input type="checkbox" id="3" value="3">
+                        <span class="checkboxtext">3</span>
+                    </div>
+{#                    <div class="checkbox-inline">#}
+{#                        <input type="checkbox" id="4" value="4">#}
+{#                        <span class="checkboxtext">random</span>#}
+{#                    </div>#}
+                </div>
+                <div class="col-xs-6 col-sm-6">
+                    <input type="text" id="range" name="time_frame">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="container-fluid">
+                <div id="div_1" hidden="hidden"></div>
+                <div id = "chart1"
+                     style = "height: 400px; width: 100%;">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="container-fluid">
+                <div id="div_2" hidden="hidden"></div>
+                <div id = "chart2"
+                     style = "height: 400px; width: 100%;">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="container-fluid">
+                <div id="div_3" hidden="hidden"></div>
+                <div id = "chart3"
+                     style = "height: 400px; width: 100%;">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="container-fluid">
+                <div id="div_4" hidden="hidden"></div>
+                <div id = "chart4"
+                     style = "height: 400px; width: 100%;">
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

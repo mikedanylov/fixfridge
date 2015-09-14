@@ -4,21 +4,13 @@ import time
 from django.shortcuts import render, redirect
 from sensor_logging.models import Sensor
 from sensor_logging import forms
+from django.http import JsonResponse, HttpResponse
+from django.views.decorators.csrf import ensure_csrf_cookie, csrf_exempt
 
 
 def main_view(request):
-    # Create a response
     if request.method == 'POST':
         id_form = forms.IdFilterForm(request.POST)
-        if id_form.is_valid():
-            id_selected = int(id_form.cleaned_data['sensor_id'])
-            sensor_rows = Sensor.objects.all().filter(sensor_id=id_selected)
-            f_measurements = open('sensor_logging/static/measurements.txt','w')
-            f_datetime = open('sensor_logging/static/datetime.txt','w')
-            for each in sensor_rows:
-                f_measurements.write(str(each.sensor_data) + ' ')
-                datetime_millis = time.mktime(datetime.datetime.combine(each.mea_date, each.mea_time).timetuple())
-                f_datetime.write(str(datetime_millis) + ' ')
     else:
         id_form = forms.IdFilterForm()
     return render(request, 'sensor_logging/base.html',{
@@ -27,7 +19,6 @@ def main_view(request):
 
 
 def home_view(request):
-    # Create a response
     if request.method == 'POST':
         main_form = forms.MainPageForm(request.POST)
         if main_form.is_valid():
@@ -42,13 +33,29 @@ def home_view(request):
     })
 
 
+@csrf_exempt
 def realtime_view(request):
-    # if request.method == 'POST':
-
+    if request.method == 'POST' and request.is_ajax():
+        data = dict(request.POST)
+        id = data['sensor_id'][0]
+        time_frame = int(data['time_frame'][0])
+        time_begin = time.time() - time_frame * 3600
+        sensor_rows = Sensor.objects.filter(sensor_id=id)
+        sensor_mea = []
+        sensor_datetime = []
+        for each in sensor_rows:
+            datetime_millis = time.mktime(
+                datetime.datetime.combine(each.mea_date, each.mea_time).timetuple()
+            )
+            if datetime_millis > time_begin:  # append only if within time frame
+                sensor_datetime.append(datetime_millis)
+                sensor_mea.append(each.sensor_data)
+        new_data = {}
+        new_data["mea_value"] = sensor_mea
+        new_data["mea_datetime"] = sensor_datetime
+        return JsonResponse(new_data)
     return render(request, 'sensor_logging/real_time_filter.html')
 
 
 def oldlogs_view(request):
-    # if request.method == 'POST':
-
     return render(request, 'sensor_logging/old_logs_filter.html')
