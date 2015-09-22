@@ -29,16 +29,8 @@ $.ajaxSetup({
     }
 });
 
-window.onload = function(){
-    document.getElementById('chart1').style.display = 'none';
-    document.getElementById('chart2').style.display = 'none';
-    document.getElementById('chart3').style.display = 'none';
-    document.getElementById('chart4').style.display = 'none';
-
-    //document.getElementById('1').checked = false;
-    //document.getElementById('2').checked = false;
-    document.getElementById('3').checked = false;
-    //document.getElementById('4').checked = false;
+// main function
+$(function(){
 
     $("#range").ionRangeSlider({
         grid: true,
@@ -46,22 +38,27 @@ window.onload = function(){
         max: 24,
         from: 2
     });
-};
+    $(".chart-div").hide();
+    $(".mySwitch").bootstrapSwitch('state', false);
 
-$(function () {
+    // switch toggle event
     var intervals = {};
-    $('input').on('click', function () {
-        var elem_val = $(this).val();
+    $(".mySwitch").on('switchChange.bootstrapSwitch', function(event, state) {
+        var elem_val = this.id;
         var chart_id = 'chart' + elem_val;
-        if (is_checked(elem_val)) {
-            document.getElementById(chart_id).style.display = 'block';
-            intervals[elem_val] = setInterval( function(){plot_realtime(elem_val, get_time_frame())}, 6000);
+        if (state == true){
+            $('#' + chart_id).show('slow');
+            setTimeout(function () {
+                plot_realtime(elem_val, get_time_frame());
+            }, 700);
+            intervals[elem_val] = setInterval( function(){plot_realtime(elem_val, get_time_frame())}, 20000);
         }
-        else {
+        if(state == false){
             clearInterval(intervals[elem_val]);
-            document.getElementById(chart_id).style.display = 'none';
+            $('#' + chart_id).hide('slow');
         }
     });
+
 });
 
 function is_checked(elem_id){
@@ -77,6 +74,5 @@ function is_checked(elem_id){
 
 function get_time_frame(elem_id){
     var slider = $("#range").data("ionRangeSlider");
-    //console.log(slider.old_from);
     return slider.old_from;
 }

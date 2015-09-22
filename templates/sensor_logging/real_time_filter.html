@@ -5,15 +5,12 @@
     {% load crispy_forms_tags %}
     {% load staticfiles %}
 
-    <link href="{% static "css/checkbox.css" %}" rel="stylesheet">
+{#    <link href="{% static "css/checkbox.css" %}" rel="stylesheet">#}
+
+    <link href="{% static "bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css" %}" rel="stylesheet">
     <link href="{% static "ion.rangeSlider-2.0.13/ion.rangeSlider-2.0.13/css/ion.rangeSlider.css" %}" rel="stylesheet">
     <link href="{% static "ion.rangeSlider-2.0.13/ion.rangeSlider-2.0.13/css/ion.rangeSlider.skinFlat.css" %}" rel="stylesheet">
     <link href="{% static "ion.rangeSlider-2.0.13/ion.rangeSlider-2.0.13/css/normalize.css" %}" rel="stylesheet">
-
-    <script src="{% static "js/plot.js" %}"></script>
-    <script src="{% static "js/canvasjs-1.7.0/canvasjs.min.js" %}"></script>
-    <script src="{% static "js/realtime_page.js" %}"></script>
-    <script src="{% static "ion.rangeSlider-2.0.13/ion.rangeSlider-2.0.13/js/ion-rangeSlider/ion.rangeSlider.js" %}"></script>
 
 {% endblock extrahead %}
 
@@ -23,30 +20,22 @@
         <div class="well">
             <div class="row">
                 <div class="col-xs-6">
-                    <h3>Select sensors to display</h3>
+                    <h3 style="text-align: center">Select sensors to display</h3>
                 </div>
                 <div class="col-xs-6">
-                    <h3>Select time frame</h3>
+                    <h3 style="text-align: center">Select time frame</h3>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-6 col-sm-6">
-{#                    <div class="checkbox-inline">#}
-{#                        <input type="checkbox" id="1" value="1">#}
-{#                        <span class="checkboxtext">1</span>#}
-{#                    </div>#}
-{#                    <div class="checkbox-inline">#}
-{#                        <input type="checkbox" id="2" value="2">#}
-{#                        <span class="checkboxtext">2</span>#}
-{#                    </div>#}
-                    <div class="checkbox-inline">
-                        <input type="checkbox" id="3" value="3">
-                        <span class="checkboxtext">3</span>
+                    <div class="col-xs-12 col-sm-6">
+                        <input id="1" type="checkbox" class="mySwitch" name="switch"
+                                data-label-text="1" data-on-color="success" data-off-color="warning">
                     </div>
-{#                    <div class="checkbox-inline">#}
-{#                        <input type="checkbox" id="4" value="4">#}
-{#                        <span class="checkboxtext">random</span>#}
-{#                    </div>#}
+                    <div class="col-xs-12 col-sm-6">
+                        <input id="2" type="checkbox" class="mySwitch" name="switch"
+                                data-label-text="2" data-on-color="success" data-off-color="warning">
+                    </div>
                 </div>
                 <div class="col-xs-6 col-sm-6">
                     <input type="text" id="range" name="time_frame">
@@ -59,7 +48,7 @@
         <div class="row">
             <div class="container-fluid">
                 <div id="div_1" hidden="hidden"></div>
-                <div id = "chart1"
+                <div id = "chart1" class="chart-div"
                      style = "height: 400px; width: 100%;">
                 </div>
             </div>
@@ -67,7 +56,7 @@
         <div class="row">
             <div class="container-fluid">
                 <div id="div_2" hidden="hidden"></div>
-                <div id = "chart2"
+                <div id = "chart2" class="chart-div"
                      style = "height: 400px; width: 100%;">
                 </div>
             </div>
@@ -75,7 +64,7 @@
         <div class="row">
             <div class="container-fluid">
                 <div id="div_3" hidden="hidden"></div>
-                <div id = "chart3"
+                <div id = "chart3" class="chart-div"
                      style = "height: 400px; width: 100%;">
                 </div>
             </div>
@@ -83,10 +72,16 @@
         <div class="row">
             <div class="container-fluid">
                 <div id="div_4" hidden="hidden"></div>
-                <div id = "chart4"
+                <div id = "chart4" class="chart-div"
                      style = "height: 400px; width: 100%;">
                 </div>
             </div>
         </div>
     </div>
+
+    <script src="{% static "bootstrap-switch/dist/js/bootstrap-switch.min.js" %}"></script>
+    <script src="{% static "js/canvasjs-1.7.0/canvasjs.min.js" %}"></script>
+    <script src="{% static "ion.rangeSlider-2.0.13/ion.rangeSlider-2.0.13/js/ion-rangeSlider/ion.rangeSlider.js" %}"></script>
+    <script src="{% static "js/plot.js" %}"></script>
+    <script src="{% static "js/realtime_page.js" %}"></script>
 {% endblock %}
