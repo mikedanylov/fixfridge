@@ -1,5 +1,6 @@
 # fixFridge
 Web interface for displaying real-time data from temperature sensors network
+
 [fixFridge website](http://fixfridge.net)
 ![](sensor_logging/static/img/screenshot_realtime_page.png)
 
