@@ -24,5 +24,4 @@ urlpatterns = [
     url(r'^home/', s_views.home_view),
     url(r'^realtime/', s_views.realtime_view),
     url(r'^oldlogs/', s_views.oldlogs_view),
-    # url(r'^test/', s_views.choose_id),
 ]

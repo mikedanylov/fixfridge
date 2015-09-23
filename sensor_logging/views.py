@@ -9,13 +9,14 @@ from django.views.decorators.csrf import ensure_csrf_cookie, csrf_exempt
 
 
 def main_view(request):
-    if request.method == 'POST':
-        id_form = forms.IdFilterForm(request.POST)
-    else:
-        id_form = forms.IdFilterForm()
-    return render(request, 'sensor_logging/base.html',{
-        'form': id_form,
-    })
+    # if request.method == 'POST':
+    #     id_form = forms.IdFilterForm(request.POST)
+    # else:
+    #     id_form = forms.IdFilterForm()
+    # return render(request, 'sensor_logging/base.html',{
+    #     'form': id_form,
+    # })
+    return redirect('/realtime')
 
 
 def home_view(request):

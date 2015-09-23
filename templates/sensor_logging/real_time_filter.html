@@ -5,12 +5,9 @@
     {% load crispy_forms_tags %}
     {% load staticfiles %}
 
-{#    <link href="{% static "css/checkbox.css" %}" rel="stylesheet">#}
-
-    <link href="{% static "bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css" %}" rel="stylesheet">
-    <link href="{% static "ion.rangeSlider-2.0.13/ion.rangeSlider-2.0.13/css/ion.rangeSlider.css" %}" rel="stylesheet">
-    <link href="{% static "ion.rangeSlider-2.0.13/ion.rangeSlider-2.0.13/css/ion.rangeSlider.skinFlat.css" %}" rel="stylesheet">
-    <link href="{% static "ion.rangeSlider-2.0.13/ion.rangeSlider-2.0.13/css/normalize.css" %}" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.2/css/bootstrap3/bootstrap-switch.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.1.1/css/ion.rangeSlider.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.1.1/css/ion.rangeSlider.skinFlat.min.css" rel="stylesheet">
 
 {% endblock extrahead %}
 
@@ -30,11 +27,11 @@
                 <div class="col-xs-6 col-sm-6">
                     <div class="col-xs-12 col-sm-6">
                         <input id="1" type="checkbox" class="mySwitch" name="switch"
-                                data-label-text="1" data-on-color="success" data-off-color="warning">
+                                data-label-text="fridge" data-on-color="success" data-off-color="warning">
                     </div>
                     <div class="col-xs-12 col-sm-6">
                         <input id="2" type="checkbox" class="mySwitch" name="switch"
-                                data-label-text="2" data-on-color="success" data-off-color="warning">
+                                data-label-text="street" data-on-color="success" data-off-color="warning">
                     </div>
                 </div>
                 <div class="col-xs-6 col-sm-6">
@@ -79,9 +76,9 @@
         </div>
     </div>
 
-    <script src="{% static "bootstrap-switch/dist/js/bootstrap-switch.min.js" %}"></script>
-    <script src="{% static "js/canvasjs-1.7.0/canvasjs.min.js" %}"></script>
-    <script src="{% static "ion.rangeSlider-2.0.13/ion.rangeSlider-2.0.13/js/ion-rangeSlider/ion.rangeSlider.js" %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.2/js/bootstrap-switch.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.1.1/js/ion.rangeSlider.min.js"></script>
     <script src="{% static "js/plot.js" %}"></script>
     <script src="{% static "js/realtime_page.js" %}"></script>
 {% endblock %}
