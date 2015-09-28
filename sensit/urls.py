@@ -19,7 +19,7 @@ from django.contrib import admin
 from sensor_logging import views as s_views
 
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
+    # url(r'^admin/', include(admin.site.urls)),
     url(r'^$', s_views.main_view),
     url(r'^home/', s_views.home_view),
     url(r'^realtime/', s_views.realtime_view),
