@@ -1,0 +1,2 @@
+psycopg2==2.6.1
+pyserial==2.7
